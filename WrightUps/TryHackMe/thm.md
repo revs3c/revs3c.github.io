@@ -2,7 +2,7 @@
 layout: default
 title: TryHackMe
 nav_order: 2
-parent: Wright Ups
+parent: WrightUps
 has_children: true
 has_toc: true
 ---
