@@ -2,7 +2,7 @@
 layout: default
 title: IPV6 DNS Attack
 has_children: true
-parent: Windows Attacks
+parent: WindowsAttacks
 has_toc: false
 ---
 

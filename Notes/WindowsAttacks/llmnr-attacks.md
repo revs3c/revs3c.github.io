@@ -2,7 +2,7 @@
 layout: default
 title: LLMNR Poisoning
 has_children: true
-parent: Windows Attacks
+parent: WindowsAttacks
 has_toc: false
 ---
 
