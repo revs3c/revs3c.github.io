@@ -1,17 +1,17 @@
 ---
-title: My Site
-toc: false
+title: "Welcome"
+type: "page"
+layout: "default"
 ---
 
-This is the landing page.
+<div style="text-align: center;">
 
-## Explore
+👋 Hey there! I'm **[Revs3c]** — passionate about all things **cybersecurity** and digital defense.  
+I've proudly earned my **CEH (Certified Ethical Hacker)** certification 🛡️, and I've been diving deep into tools like **Nmap**, **Burp Suite**, **Wireshark**, and more.
 
-{{< cards >}}
-  {{< card link="docs" title="Docs" icon="book-open" >}}
-  {{< card link="about" title="About" icon="user" >}}
-{{< /cards >}}
+🔍 I love exploring CTFs, solving real-world hacking challenges, and constantly pushing my boundaries.  
+This site is my **knowledge hub** — packed with writeups, notes, and everything I'm learning along the way.
 
-## Documentation
+💻 Whether you're curious, learning, or hacking alongside — welcome aboard!
 
-For more information, visit [Hextra](https://imfing.github.io/hextra).
+</div>
