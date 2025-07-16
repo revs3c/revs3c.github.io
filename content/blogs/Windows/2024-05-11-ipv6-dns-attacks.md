@@ -5,7 +5,6 @@ weight: 20
 type: docs
 ---
 
-# IPv6 DNS Attack's   
 ## #🤔What?   
    
 The attack performed, that is ipv6 is a different than the LLMNR and SMB relay, likely same but different mechanisms before diving in let's consider knowing some technical term's.   

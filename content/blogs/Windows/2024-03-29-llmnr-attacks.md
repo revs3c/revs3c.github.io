@@ -5,7 +5,6 @@ title:  "LLMNR Attack"
 type: docs
 ---
 
-# LLMNR Attack's   
 ## #What is LLMNR**(Link-Local Multicast Name Resolution) ?**   
    
 - LLMNR (Link-Local Multicast Name Resolution) is a fallback mechanism used in Windows when the DNS (Domain Name System) fails to resolve a hostname. It allows devices to resolve hostnames in a local network using multicast queries.   

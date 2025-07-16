@@ -59,13 +59,13 @@ At http://10.10.11.58/ we get
 
 And at http://10.10.11.58/?q=admin, not the access denied, but at the bottom left.
 
-![image]({{ site.baseurl }}/assets/images/Pastedimage20250710141232.png)
+![image](Pastedimage20250710141232.png)
 
 But no mention of version is there but using out Brahmastra google we get a exploit db page tell a rce on BackDrop CMS. And the login us useless as no defaults are working.
 
 Let's move ahead on directory bruteforce via dirb.
 
-![image]({{ site.baseurl }}/assets/images/Pastedimage20250710141923.png)
+![image](Pastedimage20250710141923.png)
 
 This in intresting after navigating we can see files of .git folder. "http://10.10.11.58/.git/" lets get it using a tool called git dumper.
 
@@ -75,17 +75,17 @@ git-dumper http://10.10.11.58/.git git
 
 After downloading those files we get a folder named core/modules and a setting.php file with the password of root.
 
-![image]({{ site.baseurl }}/assets/images/Pastedimage20250710142504.png)
+![image](Pastedimage20250710142504.png)
 
 And if u are goot at recon u might have noticed the posts in the webpage the user's of dog use email so lets find them.
 
-![image]({{ site.baseurl }}/assets/images/Pastedimage20250710142849.png)
+![image](Pastedimage20250710142849.png)
 
 ok now that we have got the user email lets try to get in. Using those cred's we get access to admin panel, early i talked about the exploit db exploit.
 
 But the problem hear is that to upload the module it excepts certian format's like 
 
-![image]({{ site.baseurl }}/assets/images/Pastedimage20250710143711.png)
+![image](Pastedimage20250710143711.png)
 
 ok so to create one we will need a php shell and a file with .info extension as its a backdrop cms, now the process goes like this.
 
@@ -100,18 +100,18 @@ Doing these steps will give use a reverse shell.
 
 After getting a reverse shell we have the user www-data. when we navigate to /home we get to more users "johncusack" and "" trying the same password as tiffany we get the the user flag.
 
-![image]({{ site.baseurl }}/assets/images/Pastedimage20250712163127.png)
+![image](Pastedimage20250712163127.png)
 
 Now escalating more we get by doing ```sudo -l ``` we get the ALL ALL for the bee command.
 
-![image]({{ site.baseurl }}/assets/images/Pastedimage20250712163320.png)
+![image](Pastedimage20250712163320.png)
 
 Now hear i don't know much how to escalate by using chatgpt we get to know that bee command is used to manage the backdrop cms.
 
-![image]({{ site.baseurl }}/assets/images/Pastedimage20250710151050.png)
+![image](Pastedimage20250710151050.png)
 
 Ok so when we do bee eval to get the root we are greated with error.
 
 Then we get the root.txt
 
-![image]({{ site.baseurl }}/assets/images/Pastedimage20250712165828.png)
+![image](Pastedimage20250712165828.png)
