@@ -54,7 +54,7 @@ In the scan we can see the os is linux and on port 80 is running apache/2.4.41 a
 
 At http://10.10.11.58/ we get 
 
-![Image]({{ site.baseurl }}/assets/images/Pastedimage20250710141120.png)
+![Image](Pastedimage20250710141120.png)
 
 
 And at http://10.10.11.58/?q=admin, not the access denied, but at the bottom left.

@@ -21,11 +21,8 @@ menu:
     - name: Blogs
       pageRef: /blogs
       weight: 1
-    - name: About Me
-      pageRef: /about
-      weight: 2
     - name: Search
-      weight: 3
+      weight: 2
       params:
         type: search
 
