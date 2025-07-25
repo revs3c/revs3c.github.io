@@ -11,14 +11,10 @@
             "id": "c7917516153f4c6c",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "content/blogs/Windows/2025-07-25-Unconstrained-Delegation.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "2025-07-25-Unconstrained-Delegation"
+              "title": "New tab"
             }
           }
         ]
@@ -94,7 +90,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/blogs/Windows/2025-07-25-Unconstrained-Delegation.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +99,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for 2025-07-25-Unconstrained-Delegation"
+              "title": "Backlinks"
             }
           },
           {
@@ -113,12 +108,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "content/blogs/Windows/2025-07-25-Unconstrained-Delegation.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from 2025-07-25-Unconstrained-Delegation"
+              "title": "Outgoing links"
             }
           },
           {
@@ -142,13 +136,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/blogs/Windows/2025-07-25-Unconstrained-Delegation.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 2025-07-25-Unconstrained-Delegation"
+              "title": "Outline"
             }
           }
         ]
@@ -170,8 +163,12 @@
   },
   "active": "c7917516153f4c6c",
   "lastOpenFiles": [
-    "content/blogs/Windows/2025-07-25-Kerberos-Delegation.md",
     "content/blogs/Windows/2025-07-25-Unconstrained-Delegation.md",
+    "content/blogs/Windows/Kerberos-Delegation/2025-07-25-Unconstrained-Delegation.md",
+    "content/blogs/Windows/Kerberos-Delegation/2025-07-25-Kerberos-Delegation.md",
+    "content/blogs/Windows/Kerberos-Delegation/_index.md",
+    "content/blogs/Windows/Kerberos-Delegation",
+    "content/blogs/Windows/2025-07-25-Kerberos-Delegation.md",
     "content/blogs/Windows/Kerberos Delegation.md"
   ]
 }
