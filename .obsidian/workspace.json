@@ -11,10 +11,14 @@
             "id": "c7917516153f4c6c",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "content/blogs/Windows/Kerberos-Delegation/_index.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "_index"
             }
           }
         ]
@@ -74,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 263.5
   },
   "right": {
     "id": "5ca0eeb36729dc1f",
@@ -90,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "content/blogs/Windows/Kerberos-Delegation/_index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for _index"
             }
           },
           {
@@ -108,11 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "content/blogs/Windows/Kerberos-Delegation/_index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Outgoing links from _index"
             }
           },
           {
@@ -136,12 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "content/blogs/Windows/Kerberos-Delegation/_index.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of _index"
             }
           }
         ]
@@ -163,10 +170,23 @@
   },
   "active": "c7917516153f4c6c",
   "lastOpenFiles": [
-    "content/blogs/Windows/2025-07-25-Unconstrained-Delegation.md",
-    "content/blogs/Windows/Kerberos-Delegation/2025-07-25-Unconstrained-Delegation.md",
-    "content/blogs/Windows/Kerberos-Delegation/2025-07-25-Kerberos-Delegation.md",
+    "content/blogs/_index.md",
+    "content/_index.md",
     "content/blogs/Windows/Kerberos-Delegation/_index.md",
+    "public/blogs/windows/kerberos-delegation/Pasted-image.png",
+    "content/blogs/Windows/Kerberos-Delegation/Pasted-image.png",
+    "public/blogs/windows/kerberos-delegation/Pasted image.png",
+    "content/blogs/Windows/Kerberos-Delegation/Pasted image.png",
+    "Pasted image 20250725085914.png",
+    "content/blogs/Windows/Kerberos-Delegation/2025-07-25-Unconstrained-Delegation.md",
+    "Pasted image 20250725084825.png",
+    "public/blogs/windows/kerberos-delegation/index.xml",
+    "public/blogs/windows/kerberos-delegation/2025-07-25-unconstrained-delegation/index.html",
+    "public/blogs/windows/kerberos-delegation/index.html",
+    "public/blogs/windows/kerberos-delegation/2025-07-25-unconstrained-delegation",
+    "public/blogs/windows/kerberos-delegation",
+    "content/blogs/Windows/2025-07-25-Unconstrained-Delegation.md",
+    "content/blogs/Windows/Kerberos-Delegation/2025-07-25-Kerberos-Delegation.md",
     "content/blogs/Windows/Kerberos-Delegation",
     "content/blogs/Windows/2025-07-25-Kerberos-Delegation.md",
     "content/blogs/Windows/Kerberos Delegation.md"

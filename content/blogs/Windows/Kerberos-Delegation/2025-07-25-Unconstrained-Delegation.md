@@ -1,19 +1,20 @@
 ---
 layout: default
 parent: Kerberos Delegation
-title:  "Unconstrained Delegation"
-weight: 2
+title: Unconstrained Delegation
+weight: 1
 type: docs
 ---
 
 
-### Introduction
+### **Introduction**
 
 In this section we will learn what's unconstrained delegation, the requirements for this attack is simple must know basic widows attack vector's and Kerberos communication for unconstrained delegation.
+<br><br>
 
 ---
 
-### What's Unconstrained Delegation !!?
+### **What's Unconstrained Delegation !!?**
 
 Unconstrained delegation is a configuration in Microsoft Active Directory and Kerberos environments that allows a specifically designated service or computer to impersonate any authenticated user and access any resource in the domain on their behalf, by leveraging the user's Kerberos TGT.
 
@@ -25,12 +26,12 @@ Unconstrained delegation in Microsoft Active Directory can be assigned to the fo
 
 **Key points:**
 
-- Only objects (computer or user accounts) with the "Trusted for Delegation" flag enabled can be used for unconstrained delegation.
+- Only objects (computer or user accounts) with the **"Trusted for Delegation"** flag enabled can be used for unconstrained delegation.
 
 - It is not assignable to groups, organizational units, or arbitrary AD objects—only to individual user and computer accounts.
-
+<br><br>
 ---
-### Attack Vector 
+### **Attack Vector**
 
 - **Initial Access and Identification**:  
     Red teams first scout the environment via LDAP queries or enumeration tools to identify which computer or service accounts have unconstrained delegation enabled, excluding domain controllers since unconstrained delegation is enabled by default there.
@@ -51,9 +52,9 @@ Unconstrained delegation in Microsoft Active Directory can be assigned to the fo
 3. Use tools to monitor and extract TGTs in memory.
 4. Impersonate targeted users to request service tickets for additional resources.
 5. Move laterally and escalate privileges, maintaining stealth and persistence.
-
+<br><br>
 ---
 
-### Lab Setup !!!
+### **Lab Setup !!!**
 
 Comming Soon
