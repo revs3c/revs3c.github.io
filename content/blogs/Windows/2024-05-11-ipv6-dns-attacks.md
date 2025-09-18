@@ -5,24 +5,23 @@ weight: 20
 type: docs
 ---
 
-## #🤔What?   
    
 The attack performed, that is ipv6 is a different than the LLMNR and SMB relay, likely same but different mechanisms before diving in let's consider knowing some technical term's.   
    
-**#**🌐🆔6️⃣Wh**at is IPv6 ?   
+**What is IPv6 ?** 
 > IPv6 stands for Internet Protocol version 6. It’s the most recent version of the Internet Protocol (IP), which is the system that identifies devices on a network and allows them to communicate with each other.   
 
    
-### #🧭 What is WPAD?   
+**What is WPAD?**   
 > WPAD stands for Web Proxy Auto-Discovery Protocol. It’s a method used by computers to automatically find out if they should use a proxy server for web access—and if so, which one.   
 
    
-### #🏢 How does WPAD work in Windows Active Directory environments?   
+**WPAD working**
 > In a Windows Active Directory (AD) setup, WPAD is often used to simplify the configuration of proxy settings across a large number of computers.   
 
    
-**Here’s how it typically works:**   
-  - **A client device boots up and looks for proxy settings.**   
+Here’s how it typically works:   
+  - A client device boots up and looks for proxy settings.   
   - It tries to find a file called `wpad.dat`, which contains the proxy info.   
   - This file can be discovered via:   
       - **DNS** (e.g., `http://wpad.company.local/wpad.dat`)   
@@ -53,10 +52,7 @@ The attack performed, that is ipv6 is a different than the LLMNR and SMB relay, 
      
 ### ✅ Command:   
    
-  ```
-bash
-
-CopyEdit
+```
 sudo mitm6 -i vboxnet0 -d tonystark.local
 ```
    
@@ -67,13 +63,11 @@ sudo mitm6 -i vboxnet0 -d tonystark.local
   - Victim sends a DNS request for `wpad.tonystark.local`.   
   - Attacker’s fake DNS responds with the attacker’s IP.   
    
-  > 📌 This exploits the WPAD (Web Proxy Auto-Discovery Protocol) mechanism.   
-
-###    
+  > 📌 This exploits the WPAD (Web Proxy Auto-Discovery Protocol) mechanism.    
 ### 🔹 4. Serving Malicious Proxy Script (wpad.dat)   
    
   - Victim requests:   
-      ```
+```
 http://wpad.tonystark.local/wpad.dat
 
 ```
@@ -81,7 +75,6 @@ http://wpad.tonystark.local/wpad.dat
    
   > 📌 This configures the victim to send HTTP traffic (and NTLM auth) through the attacker.   
 
-###    
 ### 🔹 5. NTLM Authentication Triggered   
    
   - Victim authenticates to the rogue proxy using NTLMv2.   
@@ -94,7 +87,7 @@ http://wpad.tonystark.local/wpad.dat
    
 ### ✅ Command:   
    
-  ```
+```
 sudo ntlmrelayx -6 -t ldaps://192.168.56.109 -wh fakewpad.tonystark.local -l lootme
 
 ```
@@ -104,7 +97,7 @@ sudo ntlmrelayx -6 -t ldaps://192.168.56.109 -wh fakewpad.tonystark.local -l loo
   - `-wh`: Hostname for WPAD server   
   - `-l`: Loot directory for dumping results   
    
-## #🧐Why this attack works   
+## 🧐Why this attack works   
    
 ### 🔻 1. IPv6 is Enabled by Default   
    
@@ -112,32 +105,24 @@ sudo ntlmrelayx -6 -t ldaps://192.168.56.109 -wh fakewpad.tonystark.local -l loo
   - This allows `mitm6` to **inject rogue DHCPv6 and DNS information**, hijacking the victim’s DNS config.   
    
   > 📌 No IPv6 usage ≠ no IPv6 traffic. That’s the trap.   
-
-   
 ### 🔻 2. No DNSSEC or DHCPv6 Authentication   
    
   - Windows trusts DNS/DHCPv6 responses **without verifying authenticity**.   
   - There’s **no DNS server validation** in most internal networks.   
    
   > 📌 This makes spoofing as simple as replying faster than the real server.   
-
-   
 ### 🔻 3. WPAD Protocol is Enabled   
    
   - WPAD (Web Proxy Auto-Discovery) is **on by default** in many setups.   
   - Systems automatically try to find proxy settings via `http://wpad.domain.local`.   
    
   > 📌 Legacy feature designed for convenience, now abused for credential capture.   
-
-   
 ### 🔻 4. NTLM Authentication is Allowed   
    
   - NTLM is still widely supported for backward compatibility.   
   - It’s vulnerable to **relay attacks** because it doesn’t verify who is asking for authentication.   
    
-  > 📌 Kerberos is safer, but NTLM still gets used, especially in fallback scenarios.   
-
-   
+  > 📌 Kerberos is safer, but NTLM still gets used, especially in fallback scenarios. 
 ### 🔻 5. Target Services Don’t Enforce Signing   
    
   - Services like **LDAP/SMB/HTTP** must explicitly require:   
@@ -146,8 +131,6 @@ sudo ntlmrelayx -6 -t ldaps://192.168.56.109 -wh fakewpad.tonystark.local -l loo
   - Without these, NTLM can be blindly accepted and relayed.   
    
   > 📌 Relaying only works if the destination doesn’t verify integrity of the connection.   
-
-   
 ### 🔻 6. Lack of Network Segmentation   
    
   - Attackers can sit on the same subnet and intercept internal traffic.   
