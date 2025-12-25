@@ -1,6 +1,7 @@
 ---
 layout: default
 title:  "SAM Dumping"
+weight: 2
 type: docs
 ---
 

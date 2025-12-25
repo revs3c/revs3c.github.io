@@ -1,32 +1,32 @@
 ---
-layout: docs
-breadcrumbs: true
+layout: defaults
+Weight: 2
 title:  "LLMNR Attack"
 type: docs
 ---
 
-## #What is LLMNR**(Link-Local Multicast Name Resolution) ?**   
+### What is LLMNR (Link-Local Multicast Name Resolution)?   
    
 - LLMNR (Link-Local Multicast Name Resolution) is a fallback mechanism used in Windows when the DNS (Domain Name System) fails to resolve a hostname. It allows devices to resolve hostnames in a local network using multicast queries.   
    
    
-## #How Does LLMNR Works?   
+### How Does LLMNR Works?   
    
-1️⃣ **A device needs to resolve a hostname**   
+1. **A device needs to resolve a hostname**   
   - When a Windows machine wants to connect to another system (e.g., `fileserver.local`), it first **queries its configured DNS server**.   
   - If DNS **fails** to resolve the hostname, the system falls back to **LLMNR**.   
-2️⃣ **The system sends an LLMNR multicast query**   
+2. **The system sends an LLMNR multicast query**   
   - The device **broadcasts a request** over UDP port **5355** asking:   
       👉 "*Who has the IP address for fileserver.local?"   
   - This query is sent to **all devices** in the local network.   
-3️⃣ **A device with that hostname responds**   
+3. **A device with that hostname responds**   
   - If a system in the network has the hostname **fileserver.local**, it replies with:   
       👉 "*I am fileserver.local, and my IP is 192.168.1.10."   
   - The requesting machine then **connects to that IP address**.   
-4️⃣ **If no response, it falls back to NBT-NS**   
+4. **If no response, it falls back to NBT-NS**   
   - If LLMNR also **fails**, the system tries **NetBIOS Name Service (NBT-NS) on UDP 137** as a last resort.   
    
-## #Why LLMNR Is Vulnerable ?   
+### Why LLMNR Is Vulnerable ?   
    
   - **LLMNR (Link-Local Multicast Name Resolution) is a multicast protocol that operates on UDP port 5355.**   
   - **It follows a "First Come, First Serve" principle**, meaning it accepts the first response it receives **without verification**.   

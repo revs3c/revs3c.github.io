@@ -1,6 +1,7 @@
 ---
 layout: default
 title:  "Windows Authentication"
+weight: 1
 type: docs
 ---
 
