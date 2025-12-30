@@ -3,7 +3,7 @@ title: Win AD
 Weight: 0
 type: docs
 sidebar:
-  open: true
+  open: false
 ---
 
 This is the landing page for Win AD
