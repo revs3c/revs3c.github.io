@@ -14,7 +14,7 @@ Well in this case the windows has two authentication protocols,
 - Kerberos Authentication    
    
    
-### #Security Account Manager (SAM)    
+## Security Account Manager (SAM)    
    
 - The SAM databases are used to store the passwords of the local account users. The SAM stores, the passwords in a hashed format. This uses a function called "SKYKEY" to partially encrypt the password hashes    
 - NOTE The function is used to partially encrypt the password hash's.   
@@ -23,13 +23,13 @@ Well in this case the windows has two authentication protocols,
 - The lock does not release until the system throws A blue screen error exception or the OS has been shut down.    
    
    
-### **#NT (New Technology) LAN Manager** (**NTLM**)   
+## NT (New Technology) LAN Manager (**NTLM**)   
    
 - NTLM Authentication Manager is the default authentication scheme. That performs authentication for the network services it consists of two protocols.   
 - The first is the NTLM authentication and second is the LM authentication protocol. These two protocols use different, hash methodologies, to store user passwords.    
    
    
-### #The Process Of Storing Hashed Password's   
+## The Process Of Storing Hashed Password's   
    
 1. The plane text password is converted into an NTLM hash.    
 2. This hashed password is stored in SAM databases.    
@@ -37,13 +37,13 @@ Well in this case the windows has two authentication protocols,
 - Now here the "SYSKEY" is a function that adds an extra encryption layer to the SAM password hashes and the "SKYKEY" is also a key used for protecting SAM databases the key is stored in system, registry hive   
    
    
-#The Below image is for the auth between the user and the domain controller. Stored in "C:\Windows\NTDS\NTDS.DIT"   
+The Below image is for the auth between the user and the domain controller. Stored in "C:\Windows\NTDS\NTDS.DIT"   
 ![image](image3.png)    
    
 - Note the local account users password are stored using the NTLM hashing process into SAM databases. Kerberos is a ticket based system used for authentication of users and NTLM is also used as a fallback.   
    
    
-### #Kerberos Authentication System   
+## Kerberos Authentication System   
    
 ![Screenshot_2025-03-15_23-36-05](screenshot_2025-03-15_23-36-05.png)    
    
