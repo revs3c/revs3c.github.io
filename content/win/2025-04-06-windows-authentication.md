@@ -38,14 +38,14 @@ Well in this case the windows has two authentication protocols,
    
    
 The Below image is for the auth between the user and the domain controller. Stored in "C:\Windows\NTDS\NTDS.DIT"   
-![image](image3.png)    
+![image](images/image3.png)    
    
 - Note the local account users password are stored using the NTLM hashing process into SAM databases. Kerberos is a ticket based system used for authentication of users and NTLM is also used as a fallback.   
    
    
 ## Kerberos Authentication System   
    
-![Screenshot_2025-03-15_23-36-05](screenshot_2025-03-15_23-36-05.png)    
+![image](images/screenshot_2025-03-15_23-36-05.png)    
    
 - Kerberos is a network authentication protocol. That provides strong authentication for client server messages sent through Kerberos protocol and is protected against replay attacks and eveasdropping.    
    

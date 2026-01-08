@@ -57,7 +57,7 @@ Set-PSSessionConfiguration -Name Microsoft.PowerShell -showSecurityDescriptorUI
 ```
 Launches a graphical security editor for PowerShell remoting permissions on the default session configuration as shown below.
 
-![image](THM_persistant_secdiscri.png)
+![image](images/THM_persistant_secdiscri.png)
 
 Now by giving our self privileges, we can access user by evil-winrm.
 
@@ -112,10 +112,10 @@ thmuser3            S-1-5-21-1966530601-3185510712-10604624-1010
 ```
 Hear admin has the rid of 500 and we can assign it to any user like thmuser3. By navigating to ```HKLM\SAM\SAM\Domains\Account\Users```  where there will be a key for each user in the machine.
 
-![image](win_admin_rid.png)
+![image](images/win_admin_rid.png)
 
 Notice the RID is stored using little-endian notation, so its bytes appear reversed.We will now replace those two bytes with the RID of Administrator in hex (500 = 0x01F4), switching around the bytes (F401):
 
-![image](win_rid_2.png)
+![image](images/win_rid_2.png)
 
 

