@@ -46,7 +46,7 @@ PS C:\> secedit /configure /db .\config.sdb /cfg config.inf
 The task has completed successfully.
 See log %windir%\security\logs\scesrv.log for detail info.
 ```
-![image](images/THM_persistant_secdiscri.png)
+![image](/win/images/THM_persistant_secdiscri.png)
 
 By granting our user Sebackup/restore privliges we can dump hashes but this doesn't solve the problem yet as its not accessable via evil-Winrm.
 
