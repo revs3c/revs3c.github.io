@@ -12,9 +12,16 @@ type: docs
 Get-ADUser -Filter *
 ```  
 
-#### This will search for every user present in OU THM     
+#### This will search for every user present in OU THM   
+  
 ```
 Get-ADUser -Filter * -SearchBase "OU=THM,DC=thmredteam,DC=com"
+``` 
+
+####  Windows privileges your current user
+
+```
+whoami /priv
 ```
     
     
