@@ -5,8 +5,6 @@ breadcrumbs: true
 type: docs
 navbar: false
 toc: close
-sidebar:
-  open:
 ---
 {{< cards >}}
   {{< card link="/win/2026-1-2-win-wnum" title="Windows Enumeration">}}

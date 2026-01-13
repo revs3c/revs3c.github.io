@@ -1,8 +1,7 @@
 ---
 layout: default
-title:  "Windows Persistance Via Backdooring"
-parent: "Windows Persistance"
-weight: 0
+title:  "Abusing Executables"
+weight: 2
 type: docs
 ---
 ## Executable Files
@@ -23,7 +22,7 @@ The method which we will be using, is by editing the shortcut files of the legit
 
 Hear we have target shortcut, called ```calc.exe```, by opeaning properties for that shortcut we can see the Target field, which is where we will be placing our pointer for our malicious script.
 
-![image](images/backdoorinf_files_calc_properties.png)
+![image](../../images/backdoorinf_files_calc_properties.png)
 
 The script which we will be executing is consist of our payload for now ```nc64.exe``` and the path to legit ```calculator.exe```, This will do 2 following things.
 
@@ -43,7 +42,7 @@ And lastly we will be pointing ```target``` to
 powershell.exe -WindowStyle hidden C:\Windows\System32\backdoor.ps1
 ```
 
-![image](images/backdoorinf_files_calc_properties2.png)
+![image](../../images/backdoorinf_files_calc_properties2.png)
 
 ## Hijacking File Associations
 
@@ -53,11 +52,11 @@ But its not limited to a a specific file it includes user-level modification mea
 
 The system File Associations are found under ```HKLM\Software\Classes\``` as shown in image below.
 
-![image](images/Hijacking_File_Associations_1.png)
+![image](../../images/Hijacking_File_Associations_1.png)
 
 Hear we are targeting file association **.txt**, and after navigating to it's **ProgID** we can see the command which run's while opening any text file.
 
-![image](images/Hijacking_File_Associations_2.png)
+![image](../../images/Hijacking_File_Associations_2.png)
 
 In the commad ```%SystemRoot%\system32\NOTEPAD.EXE %1``` where `%1` represents the name of the opened file, basically its and argument. 
 
@@ -74,7 +73,7 @@ Where
 
 - The malicious code is same as used in other methods so far.
 
-![image](images/Hijacking_File_Associations_3.png)
+![image](../../images/Hijacking_File_Associations_3.png)
 
 If good so far, we have done and execution of any  ```.txt``` file will lead to a shell.
 
@@ -109,7 +108,7 @@ As u can see we have created one, but we need to hide if from the user to do so,
 C:\> c:\tools\pstools\PsExec64.exe -s -i regedit
 ```
 
-![image](images/sch_task_per.png)
+![image](../../images/sch_task_per.png)
 
 After u have the following window u can DELETE the security discriptor as security descriptor is simply an ACL that states which users have access to scheduled task.
 

@@ -7,8 +7,6 @@ type: docs
 
 At this page we will be talking about the priviledge esclation techniques which I learn and encounter through my learning process.
 
-## Service Exploitation
-
 ## Insecure Permissions on Service Executable
 
 ### Background
