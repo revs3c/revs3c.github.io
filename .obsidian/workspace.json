@@ -11,14 +11,13 @@
             "id": "11af65a4a1f2fab4",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "bases",
               "state": {
-                "file": "content/blogs/Windows/2024-07-25-sam-dumping.md",
-                "mode": "source",
-                "source": false
+                "file": "Untitled 1.base",
+                "viewName": "Table"
               },
-              "icon": "lucide-file",
-              "title": "2024-07-25-sam-dumping"
+              "icon": "lucide-table",
+              "title": "Untitled 1"
             }
           }
         ]
@@ -78,8 +77,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 292.5,
-    "collapsed": true
+    "width": 292.5
   },
   "right": {
     "id": "5ca0eeb36729dc1f",
@@ -172,6 +170,7 @@
   },
   "active": "11af65a4a1f2fab4",
   "lastOpenFiles": [
+    "Untitled.md",
     "content/blogs/Windows/2025-05-07-activedirectoryenum.md",
     "2025-09-18.md",
     "Untitled 1.base",

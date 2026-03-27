@@ -20,18 +20,22 @@ markup:
 
 menu:
   main:
+
+    - name: Splunk Investigation's 
+      pageRef: /siem
+      weight: 1
       
     - name: Windows  
       pageRef: /win
       weight: 2
+     
+    - name: Windows AD 
+      pageRef: /win-ad
+      weight: 3
       
     - name: Command & control  
       pageRef: /c2
       weight: 4
-      
-    - name: Windows AD 
-      pageRef: /win-ad
-      weight: 3
       
     - name: WriteUps  
       pageRef: /wu
