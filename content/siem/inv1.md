@@ -116,13 +116,60 @@ Ok now moving to splunk if i want to see all Logon Type 10 events i will execute
 
 ![](image_9.png)
 
+## Account Lifecycle Events
 
+The account lifecycle events are the events from creating a account to deactivating account when a person leaves a organization which has the following event ids.
 
+### Lifecycle Event Ids
 
+|Event Id|What Happened|
+|:------:|-------------|
+|4720|Account Created|
+|4722|Account Enabled|
+|4724|Password reset attempted|
+|4725|Account disabled|
+|4740|Account locked out|
 
+If we want to see who created a account under which name we can execute SPL like ways `index=* EventCode=4720 OR EventCode=4722 | table _time EventCode Subject_Account_Name Target_Account_Name` and the output will look like.
 
+![](image_10.png)
 
+If we zoom in more onto the request **4720** we get the Attributs of the Target_Account_Name highited below.
 
+![](image_11.png)
 
+## Group Membership events
 
+As windows logs group event's and which can be levereged by hackers we need to see what all a hacker can do and from a red teamer's perpestive we need to also we what is loged and what not.
+
+As in active directory the group are segrated into 3 main classes 
+
+- Global security group
+- Local security group
+- Universal security group
+
+These can explained as below.
+
+| Event ID | What Happened                                   | Group Scope                                      |
+|----------|--------------------------------------------------|--------------------------------------------------|
+| 4728     | Member added to the global security group        | Domain-wide                                      |
+| 4732     | Member added to local security group             | Machine-level (domain local on DCs)              |
+| 4756     | Member added to universal security group         | Entire forest                                    |
+
+We can see the below image for **Global Security Group** which includes
+
+- Message 
+- Group field 
+
+![](image_12.png)
+
+And the flow by which, like who added whom can be seen as 
+
+- `Subject_Account_Name` added
+- `Member_Account_Name` to 
+- `Group_Name` group
+
+Query for this `index=* EventCode=4728 | table _time Subject_Account_Name Member_Account_Name Group_Name`
+
+![](image_13.png)
 
