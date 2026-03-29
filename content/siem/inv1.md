@@ -140,7 +140,7 @@ If we zoom in more onto the request **4720** we get the Attributs of the Target_
 
 ## Group Membership events
 
-As windows logs group event's and which can be levereged by hackers we need to see what all a hacker can do and from a red teamer's perpestive we need to also we what is loged and what not.
+As windows logs group event's and which can be levereged by hackers we need to see what all a hacker can do and from a red teamer's perpestive we also need to know what is loged and what not.
 
 As in active directory the group are segrated into 3 main classes 
 
