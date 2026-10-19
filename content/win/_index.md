@@ -12,7 +12,7 @@ toc: close
   {{< card link="/win/2024-07-25-sam-dumping" title="SAM Dumpimg">}}
   {{< card link="/win/spawning-processes-remotely" title="Spawning Processes Remotely">}}
   {{< card link="/win/win_priv" title="Priviledge Esclation Techniques">}}
-  {{< card link="/win/windows_persistance" title="Windows Persistance Methods">}}
+  {{< card link="/win/windows_persistence" title="Windows Persistence Methods">}}
 {{< /cards >}}
 
 
