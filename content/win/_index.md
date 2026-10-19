@@ -9,7 +9,7 @@ toc: close
 {{< cards >}}
   {{< card link="/win/2026-1-2-win-wnum" title="Windows Enumeration">}}
   {{< card link="/win/2025-04-06-windows-authentication.md" title="Windows Authentication">}}
-  {{< card link="/win/2024-07-25-sam-dumping" title="SAM Dunpimg">}}
+  {{< card link="/win/2024-07-25-sam-dumping" title="SAM Dumpimg">}}
   {{< card link="/win/Spawning Processes Remotely.md" title="Spawning Processes Remotely">}}
 {{< /cards >}}
 
